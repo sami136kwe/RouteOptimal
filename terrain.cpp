@@ -38,7 +38,9 @@ Graphe<int> Terrain::construireGraphe() const {
 
     for (int i = 0; i < lignes; i++)
         for (int j = 0; j < colonnes; j++)
-            g.ajouterSommet(i * colonnes + j);
+            if (grille[i][j] != '#')
+                g.ajouterSommet(i * colonnes + j);
+
 
     const int di[] = {-1, 1, 0, 0};
     const int dj[] = { 0, 0,-1, 1};

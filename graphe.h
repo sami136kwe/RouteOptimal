@@ -143,6 +143,10 @@ public:
 */
 template <class T>
 std::vector<int> dijkstra(const Graphe<T>& g, int source, int destination) {
+    // Convertir les labels en indices internes
+    int indiceSource      = g.indices.at(source);
+    int indiceDestination = g.indices.at(destination);
+
     std::map<int, int> distances;
     std::map<int, int> predecesseur;
 
@@ -152,25 +156,20 @@ std::vector<int> dijkstra(const Graphe<T>& g, int source, int destination) {
         distances[it->first]    = INT_MAX;
         predecesseur[it->first] = -1;
     }
-    distances[source] = 0;
+    distances[indiceSource] = 0;
 
     // File de priorité min : (coût, indice)
-    std::priority_queue<
-        std::pair<int, int>,
-        std::vector<std::pair<int, int>>,
-        std::greater<std::pair<int, int>>
-    > file;
+    std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<std::pair<int,int>>> file;
 
-    file.push(std::make_pair(0, source));
+    file.push(std::make_pair(0, indiceSource));
 
     while (!file.empty()) {
         int coutActuel   = file.top().first;
         int sommetActuel = file.top().second;
         file.pop();
 
-        if (sommetActuel == destination) break;
+        if (sommetActuel == indiceDestination) break;
 
-        // Entrée obsolète : un meilleur coût a déjà été traité
         if (coutActuel > distances[sommetActuel]) continue;
 
         const std::vector<typename Graphe<T>::Arete>& aretes =
@@ -190,14 +189,14 @@ std::vector<int> dijkstra(const Graphe<T>& g, int source, int destination) {
 
     // Reconstruction du chemin par remontée des prédécesseurs
     std::vector<int> chemin;
-    if (distances[destination] == INT_MAX) return chemin; // aucun chemin
+    if (distances[indiceDestination] == INT_MAX) return chemin;
 
-    for (int v = destination; v != -1; v = predecesseur[v])
+    for (int v = indiceDestination; v != -1; v = predecesseur[v])
         chemin.push_back(v);
 
     std::reverse(chemin.begin(), chemin.end());
     return chemin;
-};
+}
 
 /*
 * Détermine le coût du chemin à partir du chemin donné en paramètre
@@ -219,6 +218,6 @@ int coutChemin(const Graphe<T>& g, const std::vector<int>& chemin) {
         }
     }
     return cout;
-};
+}
 
 #endif
