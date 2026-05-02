@@ -1,4 +1,12 @@
-#ifndef __TERRAIN_H__ 
+/**
+* @brief TP5 - Application des graphes - Recherche du plus court chemin (Algorithme Dijkstra)
+ * @course INF3105 - Structures de données et algorithmes
+ * @session Hiver 2026
+ * @author Sami Geagea GEAS72090507
+ * @author Mehdi lyafy LYAM74090201
+ * @date 2026-05-03
+ */
+#ifndef __TERRAIN_H__
 #define __TERRAIN_H__ 
 
 #include <iostream>

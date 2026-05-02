@@ -1,3 +1,11 @@
+/**
+* @brief TP5 - Application des graphes - Recherche du plus court chemin (Algorithme Dijkstra)
+ * @course INF3105 - Structures de données et algorithmes
+ * @session Hiver 2026
+ * @author Sami Geagea GEAS72090507
+ * @author Mehdi lyafy LYAM74090201
+ * @date 2026-05-03
+ */
 #pragma once
 #ifndef __GRAPHE_H__ 
 #define __GRAPHE_H__ 
