@@ -1,7 +1,7 @@
 CXX      = g++
 CXXFLAGS = -std=c++14 -Wall -Wextra
 
-TARGET  = tp5
+TARGET  = tp5.exe
 SRCS    = main.cpp terrain.cpp
 OBJS    = $(SRCS:.cpp=.o)
 
