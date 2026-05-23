@@ -91,8 +91,6 @@ RouteOptimal est un problème de RO classique : le **problème du plus court che
 - **Jeux vidéo** : calcul de trajectoires pour les personnages non-joueurs (A*, section 7).
 - **Finance** : optimisation de portefeuilles, arbitrage sur les marchés.
 
-### Lien entre la RO et chaque algorithme du cours
-
 | Algorithme | Question RO résolue |
 |---|---|
 | **Dijkstra** | Quel est le chemin le moins coûteux depuis une source vers tous les autres sommets ? |
